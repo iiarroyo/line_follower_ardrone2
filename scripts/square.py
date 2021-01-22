@@ -53,7 +53,9 @@ def go_straight(pos):
     vel.linear.x = 1.0
     vel.angular.z = 0.0
 
-    while ((not rospy.is_shutdown() )and (pos[0] <= lim[0] and pos[1]<=lim[1])):
+    while ((not rospy.is_shutdown() )and
+     (pos[0] <= lim[0] and pos[1]<=lim[1])):
+     # mientras no se llegue a las coordenadas lim
         pos = position(vel,pos)
         pub.publish(vel)
         rate.sleep()
@@ -69,6 +71,7 @@ def position(vel,pos):
     return newPos
 
 def end():
+    # enviar mensaje status a land.py, para aterrizar
     pub = rospy.Publisher("status", Bool, queue_size=10 )
     while not rospy.is_shutdown():
         pub.publish(True)
