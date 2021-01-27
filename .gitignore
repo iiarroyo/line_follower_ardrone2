@@ -3,3 +3,5 @@
 *.DS_Store
 *.png
 *.pyc
+*.mp4
+/.vscode
