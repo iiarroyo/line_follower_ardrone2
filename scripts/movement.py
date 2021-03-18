@@ -88,7 +88,7 @@ class Quadrotor:
     def go_straight(self,pos):
         # ir derecho hasta limite
         vel = Twist()
-        vel.linear.x = 0.1
+        vel.linear.x = 1.0
         vel.angular.z = 0.0
         # vel.linear.z=0.3
 
