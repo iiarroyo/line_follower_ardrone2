@@ -49,11 +49,12 @@ class Quadrotor:
 
     def takeoff(self):
         # despegar
-        flag = 0
-        while (not rospy.is_shutdown()) and flag < 100:
+        #flag = 0
+        while (not rospy.is_shutdown()) and self.navdataVar.altd < 800:
             self.takeoffPub.publish(Empty())
             self.rate.sleep()
-            flag+=1
+            #flag+=1
+            #print(self.navdataVar.altd)
 
 
     def square(self):
@@ -88,7 +89,7 @@ class Quadrotor:
     def go_straight(self,pos):
         # ir derecho hasta limite
         vel = Twist()
-        vel.linear.x = 1.0
+        vel.linear.x = 0.1
         vel.angular.z = 0.0
         # vel.linear.z=0.3
 
@@ -104,8 +105,6 @@ class Quadrotor:
         yaw = vel.angular.z
         vx = vel.linear.x
         vy = vel.linear.y
-        print(vy)
-        print(self.navdataVar.vy)
         # yaw = self.navdataVar.rotZ
         # vx = self.navdataVar.vx
         # vy = self.navdataVar.vy
@@ -126,10 +125,47 @@ if __name__ == '__main__':
   try:
       quad = Quadrotor()
       quad.takeoff()
-      print("takeoff !!!")
       quad.square()
-      print("square done !!!")
       quad.land()
-      print("landed!!!")
   except rospy.ROSInterruptException:
       pass
+# Reference : https://ardrone-autonomy.readthedocs.io/en/latest/reading.html
+# header:
+#   seq: 4785
+#   stamp:
+#     secs: 23
+#     nsecs: 930000000
+#   frame_id: "ardrone_base_link"
+# batteryPercent: 99.1004180908
+# state: 3
+# magX: 0
+# magY: 0
+# magZ: 0
+# pressure: 0
+# temp: 0
+# wind_speed: 0.0
+# wind_angle: 0.0
+# wind_comp_angle: 0.0
+# rotX: 0.0520852431655
+# rotY: -0.0970923304558
+# rotZ: -0.670082449913
+# altd: 599
+# vx: 951.08013916
+# vy: 3.64785599709
+# vz: 11.7337741852
+# ax: -0.00248119980097
+# ay: 0.000215476015001
+# az: 1.00660967827
+# motor1: 0
+# motor2: 0
+# motor3: 0
+# motor4: 0
+# tags_count: 0
+# tags_type: []
+# tags_xc: []
+# tags_yc: []
+# tags_width: []
+# tags_height: []
+# tags_orientation: []
+# tags_distance: []
+# tm: 23930000.0
