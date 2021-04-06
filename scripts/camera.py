@@ -146,10 +146,5 @@ if __name__ == '__main__':
           quad.hover()
       except KeyboardInterrupt:
           quad.stop()
-      # quad.go_straight()
-      # quad.stop()
-      #print("hover")
-
-      #print("end")
   except rospy.ROSInterruptException:
       pass
