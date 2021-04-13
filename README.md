@@ -51,7 +51,7 @@ $ rosservice call /ardrone/togglecam
 
 ### Video
 
-<https://tecmx-my.sharepoint.com/:v:/g/personal/a01706190_itesm_mx/Eb0NCncmFbFCunDXV179Pn0B-PMM_dMnSXb0zZWp8FMwkw?e=Scxr8I> 
+<https://tecmx-my.sharepoint.com/:v:/g/personal/a01706190_itesm_mx/EZZi0TNfx7FPlt5mlw0vXIEB9tKh-ev_dsFtKUYzx2tvAA?e=O89nt2> 
 
 ### OpenCV mask
 
